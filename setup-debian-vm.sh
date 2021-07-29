@@ -26,7 +26,8 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install -y \
     curl \
     git \
-    build-essential
+    build-essential \
+    gdb
 
 # Setup github ssh key
 ssh-keygen -t ed25519 -C "jhaveri@umich.edu"
@@ -34,6 +35,11 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
 echo "copy ssh pub key to github now"
 cat ~/.ssh/id_ed25519.pub
+
+# Setup git
+git config --global user.email "jhaveri@umich.edu"
+git config --global user.name "Nathan Jhaveri"
+git config --global init.defaultBranch main
 
 #install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
