@@ -28,7 +28,10 @@ sudo apt install -y \
     git \
     build-essential \
     gdb \
-    strace
+    strace \
+    htop \
+    libssl-dev \ # openssl libraries
+    pkg-config   # so rust can find openssl
 
 # Setup github ssh key
 ssh-keygen -t ed25519 -C "jhaveri@umich.edu"
@@ -45,3 +48,4 @@ git config --global init.defaultBranch main
 #install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
+cargo install cargo-edit
