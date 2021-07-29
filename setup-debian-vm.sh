@@ -27,7 +27,8 @@ sudo apt install -y \
     curl \
     git \
     build-essential \
-    gdb
+    gdb \
+    strace
 
 # Setup github ssh key
 ssh-keygen -t ed25519 -C "jhaveri@umich.edu"
