@@ -32,6 +32,8 @@ sudo apt install -y \
 ssh-keygen -t ed25519 -C "jhaveri@umich.edu"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+echo "copy ssh pub key to github now"
+cat ~/.ssh/id_ed25519.pub
 
 #install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
