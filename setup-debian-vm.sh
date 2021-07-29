@@ -19,10 +19,19 @@ chmod 600 /home/nathan/.ssh/authorized_keys
 
 echo "PubkeyAuthentication yes" >> /etc/ssh/sshd_config
 
-# Software setup
-sudo apt update -y && sudo apt upgrade -y
-sudo apt install -y curl
+## Can login as nathan here
 
+# install basics
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install -y \
+    curl \
+    git \
+    build-essential
+
+# Setup github ssh key
+ssh-keygen -t ed25519 -C "jhaveri@umich.edu"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
 
 #install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
